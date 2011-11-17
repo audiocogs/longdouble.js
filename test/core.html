@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Long-Double</title>
+    
+    <script type='application/javascript' src='../lib/longdouble.js'></script>
+    
+    <script type='text/javascript'>
+      a = new CSLongDouble(1.0, 0.0)
+      b = new CSLongDouble(2.0, 0.0)
+      c = new CSLongDouble(3.0, 0.0)
+      
+      console.log("a + b", a.add(b))
+      console.log("b + c", b.add(c))
+      
+      console.log("a + 3", a.addDouble(3))
+      console.log("b + 7", b.addDouble(7))
+      
+      console.log("a - b", a.sub(b))
+      console.log("b - c", b.sub(c))
+      
+      console.log("a - 3", a.subDouble(3))
+      console.log("b - 7", b.subDouble(7))
+      
+      console.log("a * b", a.mul(b))
+      console.log("b * c", b.mul(c))
+      
+      console.log("a * 3", a.mulDouble(3))
+      console.log("b * 7", b.mulDouble(7))
+      
+      console.log("a / b", a.div(b))
+      console.log("b / c", b.div(c))
+      
+      console.log("a / 3", a.divDouble(3))
+      console.log("b / 7", b.divDouble(7))
+    </script>
+  </head>
+</html>
