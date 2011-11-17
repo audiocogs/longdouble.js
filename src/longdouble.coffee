@@ -57,9 +57,7 @@ split = (a) ->
 #                p = fl(a × b)
 #                e = err(a × b).
 
-FMA = false # No detection for FMA / FMS suport yet.
-
-if (!FMA)
+if (!Math.fma) # Only my special build of Firefox supports FMA yet.
 	two_prod = (a, b) ->
 		p = a * b
 		
