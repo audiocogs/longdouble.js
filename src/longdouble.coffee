@@ -423,6 +423,40 @@ class CSLongDouble
 			return new CSLongDouble(@hi, @lo)
 		
 	
+# Imp 31:      TODO but trivial
+#
+	pow: (n) ->
+		if n == 0
+			if this.zero()
+				return new CSLongDouble(0.0 / 0.0, 0.0 / 0.0)
+			
+			return new CSLongDouble(1.0, 0.0)
+		
+		r = new CSLongDouble(@hi, @lo)
+		s = new CSLongDouble(1.0, 0.0)
+		
+		p = Math.abs(n)
+		
+		if p > 1.0
+			while p > 0.0
+				if p % 2 == 1
+					s = s.mul(r)
+				
+				p = p / 2.0
+				
+				if p > 0.0
+					r = r.mul(r)
+				
+			
+		else
+			s = r
+		
+		if n < 0.0
+			return new CSLongDouble(1.0, 0.0).div(s)
+		else
+			return s
+		
+	
 # Helper 1:    Trivial
 #
 	zero: () ->
