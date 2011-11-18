@@ -354,5 +354,89 @@ class CSLongDouble
 		
 		return this
 	
+# Imp 18:      Trivial
+#
+	equal: (other) ->
+		return @hi == other.hi && @lo == other.lo
+	
+# Imp 19:      Trivial
+#
+	equalDouble: (other) ->
+		return @hi == other && @lo == 0.0
+	
+# Imp 20:      Trivial
+#
+	notEqual: (other) ->
+		return @hi != other.hi || @lo != other.lo
+	
+# Imp 21:      Trivial
+#
+	notEqualDouble: (other) ->
+		return @hi != other || @lo != 0.0
+	
+# Imp 22:      Trivial
+#
+	greaterThan: (other) ->
+		return @hi > other.hi || (@hi == other.hi && @lo > other.lo)
+	
+# Imp 23:      Trivial
+#
+	greaterThanDouble: (other) ->
+		return @hi > other || (@hi == other && @lo > 0.0)
+	
+# Imp 24:      Trivial
+#
+	greaterEqualThan: (other) ->
+		return @hi >= other.hi || (@hi == other.hi && @lo >= other.lo)
+	
+# Imp 25:      Trivial
+#
+	greaterEqualThanDouble: (other) ->
+		return @hi >= other || (@hi == other && @lo >= 0.0)
+	
+# Imp 26:      Trivial
+#
+	lessThan: (other) ->
+		return @hi < other.hi || (@hi == other.hi && @lo < other.lo)
+	
+# Imp 27:      Trivial
+#
+	lessThanDouble: (other) ->
+		return @hi < other || (@hi == other && @lo < 0.0)
+	
+# Imp 28:      Trivial
+#
+	lessEqualThan: (other) ->
+		return @hi <= other.hi || (@hi == other.hi && @lo <= other.lo)
+	
+# Imp 29:      Trivial
+#
+	lessEqualThanDouble: (other) ->
+		return @hi <= other || (@hi == other && @lo <= 0.0)
+	
+# Imp 30:      Trivial
+#
+	abs: () ->
+		if this.lessThanDouble(0.0)
+			return this.negate()
+		else
+			return new CSLongDouble(@hi, @lo)
+		
+	
+# Helper 1:    Trivial
+#
+	zero: () ->
+		return @hi == 0.0 && @lo == 0.0
+	
+# Helper 2:    Trivial
+#
+	notZero: () ->
+		return @hi != 0.0 || @lo != 0.0
+	
+# Helper 3:    Trivial
+#
+	one: () ->
+		return @hi == 1.0 && @lo == 0.0
+	
 
 window.CSLongDouble = CSLongDouble
