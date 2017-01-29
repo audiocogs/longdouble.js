@@ -387,12 +387,12 @@ class CSLongDouble
 # Imp 24:      Trivial
 #
 	greaterEqualThan: (other) ->
-		return @hi >= other.hi || (@hi == other.hi && @lo >= other.lo)
+		return @hi > other.hi || (@hi == other.hi && @lo >= other.lo)
 	
 # Imp 25:      Trivial
 #
 	greaterEqualThanDouble: (other) ->
-		return @hi >= other || (@hi == other && @lo >= 0.0)
+		return @hi > other || (@hi == other && @lo >= 0.0)
 	
 # Imp 26:      Trivial
 #
@@ -407,12 +407,12 @@ class CSLongDouble
 # Imp 28:      Trivial
 #
 	lessEqualThan: (other) ->
-		return @hi <= other.hi || (@hi == other.hi && @lo <= other.lo)
+		return @hi < other.hi || (@hi == other.hi && @lo <= other.lo)
 	
 # Imp 29:      Trivial
 #
 	lessEqualThanDouble: (other) ->
-		return @hi <= other || (@hi == other && @lo <= 0.0)
+		return @hi < other || (@hi == other && @lo <= 0.0)
 	
 # Imp 30:      Trivial
 #
@@ -442,7 +442,7 @@ class CSLongDouble
 				if p % 2 == 1
 					s = s.mul(r)
 				
-				p = p / 2.0
+				p = Math.floor(p / 2.0)
 				
 				if p > 0.0
 					r = r.mul(r)
